@@ -1,1 +1,68 @@
+   int firstocc(vector<int>& nums,int target)
+{   int n=nums.size();
+    int s=0;
+    int e=n-1;
+    int ans=-1;
 
+  
+    while(s<=e)
+    {
+          int mid=s+(e-s)/2; // for large int values
+        if(nums[mid]==target)
+          { 
+            ans =mid;
+            e=mid-1;// add this line only in a normal bs
+            }
+
+                       
+        else if(target>nums[mid]) // go to right path
+            { s=mid+1;}
+
+        else if(target<nums[mid])
+                {           //go to left path
+                  e=mid-1;
+                 }
+                else {s =mid+1;}
+    }
+    return ans;
+}
+
+
+int lastocc(vector<int>& nums,int target)
+{    
+     int n=nums.size();
+    int s=0;
+    int e=n-1;
+    int ans=-1;
+
+    while(s<=e)
+    {
+        int mid=s+(e-s)/2; // for large int values
+        if(nums[mid]==target)
+       { ans= mid;
+         s=mid+1; }// first occ function m bas ye line change krdoo
+
+                       
+     else if(target>nums[mid]) // go to right path
+       { s=mid+1;}
+
+    else if(target<nums[mid])
+                {           //go to left path
+            e=mid-1;
+            }
+         else {s =mid+1;}
+    }
+    return ans;
+}
+
+    vector<int> searchRange(vector<int>& nums, int target) {
+        
+         vector<int>answer;
+        int x=firstocc(nums,target);
+        int y=lastocc(nums,target);
+     answer.push_back(x);
+    answer.push_back(y);
+    
+    return answer;
+    
+    }
