@@ -1,1 +1,19 @@
+Maximum occuring in array
 
+ char getMaxOccuringChar(string str)
+    {
+        // Your code here
+          char c;
+       int max=-1;
+       map<char,int> m;
+       for(int i=0;i<str.length();i++){
+           m[str[i]]++;
+       }
+       for(auto i:m){
+           if(max<i.second){
+                max = i.second;
+                c = i.first;
+           }
+       }
+       return c;
+    }
