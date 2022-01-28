@@ -1,0 +1,9 @@
+long long int factorial(int N)
+{ 
+        long long int s =1;
+     for(int i =1 ;i<=N ; i++ ){
+         s*=i;
+         
+     }
+      return s;
+}
