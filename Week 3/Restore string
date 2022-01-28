@@ -1,0 +1,12 @@
+ void reverseString(vector <char>& s) 
+    {
+        if( s.size()==0)
+        { return ; }
+        
+        string reststring= s.substring(1) ;
+        
+        reverseString(reststring) ;
+        cout<<s[0];
+        
+        
+    }
